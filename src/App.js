@@ -1,11 +1,22 @@
 import React from 'react';
 import './App.css';
 import Chart from './Chart'
+import axios from 'axios'
 
 
 
 
 class App extends React.Component {
+  componentDidMount(){
+    this.fetchData()
+
+  }
+
+  async fetchData () {
+    let res = await axios.get('/api')
+    console.log("In fetchData")
+    console.log(res)
+  }
   state = {
     data: [{
       date: 2019,

@@ -2,12 +2,24 @@ import React from 'react';
 import './App.css';
 import Chart from './Chart'
 
+
+
+
 class App extends React.Component {
   state = {
-    data: [12, 5, 6, 6, 9, 10],
-    width: 700,
-    height: 500,
-    id: 1
+    data: [{
+      date: 2019,
+      value: 29
+    }, {
+        date: 2018,
+        value: 26
+    }, {
+        date: 2017,
+        value: 22
+    },
+  ],
+  height: 500,
+  width: 500
   }
 
   render() {

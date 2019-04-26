@@ -5,18 +5,23 @@ const { Data } = require('../server/models')
 const csv = require('csv-parser')
 const fs = require('fs')
 
-const halp = () => {
+const pullFromCSV = (csvData) => {
 
   let results = []
 
-  fs.createReadStream('TestData.csv')
-    .pipe(csv())
+  fs.createReadStream(csvData)
+    .pipe(csv(
+      //Keeping this code in case I need it eventually
+      {
+      mapHeaders: ({ header, index}) => header.toLowerCase()
+    }
+    ))
     .on('data', (data) => results.push(data))
-    .on('end', () => { console.log(results) })
+    .on('end', () => { console.log("Hi") })
     return results
   }
 
-const data = halp()
+const data = pullFromCSV('Energy2014.csv')
 
 async function seed() {
   console.log(data)
@@ -26,8 +31,6 @@ async function seed() {
   const finalData = await Promise.all([
     Data.bulkCreate(data)
   ])
-
-
   console.log(`seeded successfully`)
 }
 

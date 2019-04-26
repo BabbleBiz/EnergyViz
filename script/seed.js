@@ -2,18 +2,29 @@
 
 const db = require('../server/db')
 const { Data } = require('../server/models')
+const csv = require('csv-parser')
+const fs = require('fs')
+
+const halp = () => {
+
+  let results = []
+
+  fs.createReadStream('TestData.csv')
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', () => { console.log(results) })
+    return results
+  }
+
+const data = halp()
 
 async function seed() {
+  console.log(data)
   await db.sync({ force: true })
   console.log('db synced!')
 
-  const data = await Promise.all([
-    Data.create({ dataYear: 2017, propertyName: 'My House', zipcode: 60640, communityArea: 'Uptown', energyUse: 8534, totalGHGEmissions: 10007 }),
-    Data.create({ dataYear: 2016, propertyName: 'Your House', zipcode: 60600, communityArea: 'Uptown', energyUse: 7569, totalGHGEmissions: 20307 }),
-    Data.create({ dataYear: 2017, propertyName: 'Her House', zipcode: 60440, communityArea: 'Logan Square', energyUse: 6234, totalGHGEmissions: 30056 }),
-    Data.create({ dataYear: 2017, propertyName: 'My Parents House', zipcode: 64564, communityArea: 'Uptown', energyUse: 3454, totalGHGEmissions: 9304 }),
-    Data.create({ dataYear: 2018, propertyName: 'Your Parents House', zipcode: 62343, communityArea: 'Loop', energyUse: 2345, totalGHGEmissions: 13454 }),
-    Data.create({ dataYear: 2017, propertyName: 'Her Parents House', zipcode: 62533, communityArea: 'Lakeview', energyUse: 9345, totalGHGEmissions: 56785 })
+  const finalData = await Promise.all([
+    Data.bulkCreate(data)
   ])
 
 

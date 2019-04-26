@@ -14,10 +14,11 @@ class App extends React.Component {
 
   async fetchData () {
     let res = await axios.get('/api')
-    console.log(res.data)
+
     this.setState({
       data: res.data
     })
+
   }
   state = {
     data: [],
@@ -26,6 +27,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Chart data={this.state.data} width={this.state.width} height={this.state.height} />

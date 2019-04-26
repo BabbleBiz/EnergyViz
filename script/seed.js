@@ -9,9 +9,9 @@ const pullFromCSV = (csvData) => {
 
   let results = []
 
+  //What of this function is reading from disk and what is actually just changing data. Move the part that changes the data into a utli function somewhere else
   fs.createReadStream(csvData)
     .pipe(csv(
-      //Keeping this code in case I need it eventually
       {
       mapHeaders: ({ header, index}) => header.toLowerCase()
     }

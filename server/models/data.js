@@ -2,27 +2,94 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Data = db.define('data', {
-  dataYear: {
+  year: {
+    type:Sequelize.INTEGER
+  },
+  dataId: {
     type: Sequelize.INTEGER
   },
-  propertyName: {
+  name: {
+    type: Sequelize.STRING
+  },
+  address: {
     type: Sequelize.STRING
   },
   zipcode: {
     type: Sequelize.INTEGER
   },
-  communityArea: {
+  neighborhood: {
     type: Sequelize.STRING
   },
-  energyUse: {
+  type: {
+    type: Sequelize.STRING
+  },
+  floorarea: {
     type: Sequelize.INTEGER
   },
-  totalGHGEmissions: {
+  yearbuilt: {
     type: Sequelize.INTEGER
+  },
+  numbuildings: {
+    type: Sequelize.INTEGER
+  },
+  energystarscore: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    validate: {
+      notEmpty: false
+    },
+  },
+  electricityuse: {
+    type: Sequelize.INTEGER
+  },
+  naturalgas: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    validate: {
+      notEmpty: false
+    },
+  },
+  energyperfoot: {
+    type: Sequelize.INTEGER
+  },
+  weatherenergyperfoot: {
+    type: Sequelize.INTEGER
+  },
+  totalghg: {
+    type: Sequelize.INTEGER
+  },
+  latitude: {
+    type: Sequelize.FLOAT
+  },
+  longitude: {
+    type: Sequelize.FLOAT
   }
 })
 
 module.exports = Data
+
+
+// const Data = db.define('data', {
+//   dataYear: {
+//     type: Sequelize.INTEGER
+//   },
+//   propertyName: {
+//     type: Sequelize.STRING
+//   },
+//   zipcode: {
+//     type: Sequelize.INTEGER
+//   },
+//   communityArea: {
+//     type: Sequelize.STRING
+//   },
+//   energyUse: {
+//     type: Sequelize.INTEGER
+//   },
+//   totalGHGEmissions: {
+//     type: Sequelize.INTEGER
+//   }
+// })
+
 
 /**
  * instanceMethods

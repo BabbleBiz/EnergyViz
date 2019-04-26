@@ -1,9 +1,10 @@
+const db = require('../db')
 const Data = require('./data')
 
-
-//Any associations go here
-
+// register models
+require('.')
 
 module.exports = {
+  db,
   Data
 }

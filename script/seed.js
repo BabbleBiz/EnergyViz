@@ -5,12 +5,12 @@ const { Data } = require('../server/models')
 const csv = require('csv-parser')
 const fs = require('fs')
 
-const pullFromCSV = (csvData) => {
+const pullFromCSV = () => {
 
   let results = []
 
   //What of this function is reading from disk and what is actually just changing data. Move the part that changes the data into a utli function somewhere else
-  fs.createReadStream(csvData)
+  fs.createReadStream('Energy2014.csv')
     .pipe(csv(
       {
       mapHeaders: ({ header, index}) => header.toLowerCase()
@@ -21,7 +21,7 @@ const pullFromCSV = (csvData) => {
     return results
   }
 
-const data = pullFromCSV('Energy2014.csv')
+const data = pullFromCSV('Test2.csv')
 
 async function seed() {
   console.log(data)

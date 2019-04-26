@@ -14,21 +14,13 @@ class App extends React.Component {
 
   async fetchData () {
     let res = await axios.get('/api')
-    console.log("In fetchData")
-    console.log(res)
+    console.log(res.data)
+    this.setState({
+      data: res.data
+    })
   }
   state = {
-    data: [{
-      date: 2019,
-      value: 29
-    }, {
-        date: 2018,
-        value: 26
-    }, {
-        date: 2017,
-        value: 22
-    },
-  ],
+    data: [],
   height: 500,
   width: 500
   }

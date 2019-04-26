@@ -2,10 +2,24 @@
   "name": "energyviz",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8082",
   "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.2.0",
+    "@babel/plugin-proposal-json-strings": "^7.2.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
     "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0",
+    "babel": "^6.23.0",
     "body-parser": "^1.18.3",
     "d3": "^5.9.2",
     "d3-time-format": "^2.1.3",
@@ -16,8 +30,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "sequelize": "^5.7.5",
-    "volleyball": "^1.5.1",
-    "webpack-cli": "^3.3.1"
+    "volleyball": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,7 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
-    "proxy": "http://localhost:8082"
+    "start-dev": "webpack -w & nodemon main.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.1"
   }
 }

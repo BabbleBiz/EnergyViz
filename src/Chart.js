@@ -7,6 +7,7 @@ class Chart extends React.Component {
   }
 
   drawChart() {
+  console.log(this.props.data)
   let width = this.props.width
   let height = this.props.height
   const data = this.props.data

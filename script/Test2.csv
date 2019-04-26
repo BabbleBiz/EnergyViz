@@ -1,0 +1,4 @@
+﻿year,dataId,name,address,zipcode,neighborhood,type,floorArea,yearBuilt,numBuildings,energyStarScore,electricityUse,naturalGas,energyPerFoot,weatherEnergyPerFoot,totalGHG,latitude,longitude
+2014,250115,City Hall,121 N. La Salle St.,60602,LOOP,Office,411500,1870,1,76,25482836,18930,62,62,5121,41.88385328,-87.63167966
+2014,101801,Michigan Plaza,205/225 N Michigan Ave,60601,LOOP,Office,2059714,1981,1,76,131683752,25801,64,61,26458,41.88603179,-87.62354823
+2014,101874,CW GLL 444 N. Michigan,444 N. Michigan Avenue,60611,NEAR NORTH SIDE,Office,517115,1976,1,52,41443210,null,80,77,8329,41.89069402,-87.62477656

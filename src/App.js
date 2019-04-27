@@ -11,6 +11,8 @@ class App extends React.Component {
   async fetchData () {
     let res = await axios.get('/api')
 
+
+
     this.setState({
       data: res.data
     })

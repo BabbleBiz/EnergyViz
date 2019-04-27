@@ -12,15 +12,16 @@ class Chart extends React.Component {
   let height = this.props.height
   const data = this.props.data
   const parser = d3.timeParse("%Y")
-
+  const xAxisValue = 'yearbuilt'
+  const yAxisValue = 'energystarscore'
 
   let margin = ({top: 20, right: 30, bottom: 30, left: 40})
   let x = d3.scaleTime()
-    .domain(d3.extent(data, d => parser(d.yearbuilt)))
+    .domain(d3.extent(data, d => parser(d[xAxisValue])))
     .range([margin.left, width - margin.right])
 
   let y = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.energystarscore)]).nice()
+    .domain([0, d3.max(data, d => d[yAxisValue])]).nice()
     .range([height - margin.bottom, margin.top])
 
   let xAxis = g => g
@@ -38,9 +39,9 @@ class Chart extends React.Component {
         .text(data.y))
 
   let line = d3.line()
-    .defined(d => !isNaN(d.energystarscore))
-    .x(d => x(parser(d.yearbuilt)))
-    .y(d => y(d.energystarscore))
+    .defined(d => !isNaN(d[yAxisValue]))
+    .x(d => x(parser(d[xAxisValue])))
+    .y(d => y(d[yAxisValue]))
 
   const svg = d3.select("body")
       .append("svg")

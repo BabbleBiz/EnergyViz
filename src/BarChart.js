@@ -14,16 +14,24 @@ class BarChart extends React.Component {
     const xAxisValue = this.props.yAxisTitle
     const yAxisValue = this.props.xAxisTitle
 
+    //Sort the x axis numbers
+
+    data.sort((a, b) => a[xAxisValue] - b[xAxisValue])
     let margin = ({ top: 20, right: 0, bottom: 30, left: 40 })
 
     let y = d3.scaleTime()
       .domain([0, d3.max(data, d => parser(d[yAxisValue]))]).nice()
       .range([height - margin.bottom, margin.top])
 
+
     let x = d3.scaleBand()
       .domain(data.map(d => d[xAxisValue]))
       .range([margin.left, width - margin.right])
       .padding(0.1)
+
+    //Sort the x axis numbers
+    //data.sort((a, b) => a[xAxisValue] - b[xAxisValue])
+    //y.domain(data.map(d => parser(d[yAxisValue])))
 
     let xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)

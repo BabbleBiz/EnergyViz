@@ -5,7 +5,7 @@ const Data = db.define('data', {
   year: {
     type:Sequelize.INTEGER
   },
-  dataId: {
+  dataid: {
     type: Sequelize.INTEGER
   },
   name: {

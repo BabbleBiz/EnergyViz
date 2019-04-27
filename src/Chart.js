@@ -7,13 +7,12 @@ class Chart extends React.Component {
   }
 
   drawChart() {
-  console.log("DATA", this.props.data)
   let width = this.props.width
   let height = this.props.height
   const data = this.props.data
   const parser = d3.timeParse("%Y")
-  const xAxisValue = 'yearbuilt'
-  const yAxisValue = 'energystarscore'
+  const xAxisValue = this.props.xAxisTitle
+  const yAxisValue = this.props.yAxisTitle
 
   let margin = ({top: 20, right: 30, bottom: 30, left: 40})
   let x = d3.scaleTime()

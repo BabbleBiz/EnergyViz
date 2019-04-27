@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Chart from './Chart'
 import axios from 'axios'
+import BarChart from './BarChart'
 
 class App extends React.Component {
   componentDidMount(){
@@ -19,7 +20,9 @@ class App extends React.Component {
 
   }
   state = {
-    data: [],
+  data: [],
+  xAxisTitle: 'yearbuilt',
+  yAxisTitle: 'energystarscore',
   height: 500,
   width: 500
   }
@@ -28,8 +31,9 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <div className="App">
-        <Chart data={this.state.data} width={this.state.width} height={this.state.height} />
+        <Chart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} />
 
+        <BarChart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} />
       </div>
     );
   }

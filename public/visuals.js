@@ -12,9 +12,4 @@ var bar = d3.select('svg')
   })
   .style('color', 'orange')
 
-d3.select('button')
-  .on('click', function () {
-    d3.select('body')
-      .append('h3')
-      .text('Today is a beautiful day!!');
-  });
+

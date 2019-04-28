@@ -69,17 +69,13 @@ class App extends React.Component {
       <div className="App">
         <h1>Welcome to EnergyViz</h1>
         <h3>Let's learn about D3!</h3>
-        <label>
-          <ControlPanel checked={this.state.checked} onChange={this.handleCheckboxChange} />
-          <span style={{marginLeft: 8}}>Label Text</span>
-        </label>
         <div>
           <button className='button' onClick={() => this.starRatingButtonClicked()} >Energy Star Rating</button>
           <button className='button' onClick ={ () => this.perFootButtonClicked () } >Energy Per Foot</button>
           <button className='button' onClick={() => this.starRatingButtonClicked()} >Energy Star Rating</button>
           <button className='button' onClick={() => this.totalGHGButtonClicked()} >Total GHG</button>
         </div>
-          <div>Graph of: {this.state.xAxisTitle} vs {this.state.yAxisTitle} line graph</div>
+          <div id='titleGraph'>Graph of: {this.state.xAxisTitle} vs {this.state.yAxisTitle} line graph</div>
           <Chart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} checked={this.state.checked}/>
           <BarChart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} />
       </div>

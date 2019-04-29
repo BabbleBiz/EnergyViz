@@ -75,7 +75,7 @@ class App extends React.Component {
           <button className='button' onClick={() => this.starRatingButtonClicked()} >Energy Star Rating</button>
           <button className='button' onClick={() => this.totalGHGButtonClicked()} >Total GHG</button>
         </div>
-          <div id='titleGraph'>Graph of: {this.state.xAxisTitle} vs {this.state.yAxisTitle} line graph</div>
+          <div id='titleGraph'>Graph of: {this.state.xAxisTitle} vs {this.state.yAxisTitle}</div>
           <Chart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} checked={this.state.checked}/>
           <BarChart xAxisTitle={this.state.xAxisTitle} yAxisTitle={this.state.yAxisTitle} data={this.state.data} width={this.state.width} height={this.state.height} />
       </div>

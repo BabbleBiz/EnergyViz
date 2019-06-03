@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You must seed your database before starting:
+npm run seed
+
+When you want to start the server you need to run commands in this order to get the proxy to work:
+npm run start-dev
+npm run
+
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -61,6 +61,9 @@ class Chart extends React.Component {
     .x(d => x(parser(d[xAxisValue])))
     .y(d => y(d[yAxisValue]))
 
+  //########################################
+  //Append all the things
+
   const svg = d3.select("body")
       .append("svg")
       .attr("width", width)
@@ -111,7 +114,8 @@ class Chart extends React.Component {
       .attr("ry", 4);
 
 
-
+  //#################################################
+  //Overwriting instead of appending
     focus.append("text")
     .attr("x", 18)
     .attr("y", 18)

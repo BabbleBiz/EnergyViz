@@ -33,7 +33,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "sequelize": "^5.7.5",
+    "sequelize": "^5.15.1",
     "styled-components": "^4.2.0",
     "volleyball": "^1.5.1"
   },
